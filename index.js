@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const generatePassword = require('password-generator');
+const socketIO = require('socket.io');
 
 const port = process.env.PORT || 5000;
 
@@ -26,6 +27,25 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
-app.listen(port);
+const server = app.listen(port, function(err) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(`Password generator listening on ${port}`);
+  }
+});
 
-console.log(`Password generator listening on ${port}`);
+const io = socketIO(server);
+
+io.on('connection', (socket) => {
+  console.log('Client connected');
+
+  setInterval(() => {
+    socket.emit('sendPasswords', Array.from(Array(5).keys()).map(i => generatePassword(12, false)));
+    console.log('Sent Passwords');
+  }, 10000);
+
+  socket.on('disconnect', () => {
+    console.log('Client disconnected');
+  });
+});
