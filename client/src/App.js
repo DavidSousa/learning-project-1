@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import socketIoClient from 'socket.io-client';
 
@@ -17,6 +16,8 @@ class App extends Component {
     this.getPasswordsSocket();
   }
 
+  // Arrow functions understand that "this" is the component "this",
+  // otherwise (using old notation) it would be the function's "this"
   getPasswordsApi = () => {
     fetch('/api/passwords')
     .then(res => res.json())
@@ -40,14 +41,16 @@ class App extends Component {
         <h1>API Passwords</h1>
         { passwordsApi.length ? (
           <div>
-            <ul>
-              {passwordsApi.map((password, index) =>
+            <ul className="password-list">
+              { passwordsApi.map((password, index) =>
                 <li key={index}>
                   {password}
                 </li>
               )}
             </ul>
-            <button onClick={this.getPasswordsApi}>Get More</button>
+            <button className="get-more-button" onClick = { this.getPasswordsApi }>
+              GET MORE
+            </button>
           </div>
         ) : (
           <div/>
@@ -57,8 +60,9 @@ class App extends Component {
         <h1>Socket Passwords</h1>
         { passwordsSocket.length ? (
           <div>
-            <ul>
-              {passwordsSocket.map((password, index) =>
+          <h4>Generated every 10 seconds</h4>
+            <ul className="password-list">
+              { passwordsSocket.map((password, index) =>
                 <li key={index}>
                   {password}
                 </li>
@@ -66,7 +70,7 @@ class App extends Component {
             </ul>
           </div>
         ) : (
-          <div/>
+          <h4>Generated every 10 seconds</h4>
         )}
       </div>
       </div>
