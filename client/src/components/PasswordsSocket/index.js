@@ -43,7 +43,7 @@ class PasswordsSocket extends Component {
             </ul>
           </div>
         ) : (
-          <h4>Generated every 10 seconds</h4>
+          <h4>Generated every 3 seconds</h4>
         )}
       </div>
       </div>

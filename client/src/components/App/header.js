@@ -11,6 +11,7 @@ class Header extends Component {
         <Link to='/'>Home</Link>
         <Link to='/passwordsApi'>Passwords API</Link>
         <Link to='/passwordsSocket'>Passwords Socket</Link>
+        <Link to='/commentBox'>Comment Box</Link>
       </header>
     );
   }
