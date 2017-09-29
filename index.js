@@ -25,6 +25,7 @@ app.get('/api/passwords', function(req, res) {
 // match one above, send back React's index.html file.
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
+  //res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
 });
 
 const server = app.listen(port, function(err) {
@@ -40,10 +41,12 @@ const io = socketIO(server);
 io.on('connection', (socket) => {
   console.log('Client connected');
 
+  socket.emit('sendPasswords', Array.from(Array(5).keys()).map(i => generatePassword(12, false)));
+
   setInterval(() => {
     socket.emit('sendPasswords', Array.from(Array(5).keys()).map(i => generatePassword(12, false)));
     console.log('Sent Passwords');
-  }, 10000);
+  }, 3000);
 
   socket.on('disconnect', () => {
     console.log('Client disconnected');

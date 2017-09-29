@@ -1,0 +1,43 @@
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 0px;
+  color: #535e66;
+  background-color: #eee;
+}
+
+.header {
+  text-align: left;
+  border-bottom: 1px solid #aaa;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.header > a {
+  text-underline-position: under;
+  font-weight: bold;
+  color: #535e66;
+  margin-left: 20px;
+}
+
+.App {
+  text-align: center;
+}
+
+.password-list {
+  list-style-type: none;
+  padding: 0px;
+}
+
+.get-more-button {
+  border: 1px solid #e0e6ec;
+  background-color: white;
+  border-radius: 6px;
+  padding:10px;
+  color: #535e66;
+  font: 13px "Century Gothic", Futura, sans-serif;
+}
+
+.get-more-button:focus {
+    outline: none;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,.14) ;
+}
