@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const generatePassword = require('password-generator');
 const socketIO = require('socket.io');
+const mongoose = require('mongoose');
 
 const port = process.env.PORT || 5000;
 

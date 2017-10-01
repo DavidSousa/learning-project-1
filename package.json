@@ -14,6 +14,7 @@
     "classnames": "^2.2.5",
     "create-react-app": "^1.4.1",
     "express": "^4.16.0",
+    "mongoose": "^4.11.13",
     "password-generator": "^2.1.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
