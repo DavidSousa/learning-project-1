@@ -1,0 +1,19 @@
+.chat {
+  text-align: left;
+  padding: 30px 0px 20px 30px;
+}
+
+.chat-message-author {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 4px 0px 4px 0px;
+}
+
+.chat-message-text {
+  font-size: 15px;
+  padding: 2px 0px 2px 0px;
+}
+
+.chat-form {
+  padding: 8px 0px 0px 0px;
+}

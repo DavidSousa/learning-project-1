@@ -1,0 +1,9 @@
+{
+  "db": {
+    "username": "admin",
+    "password": "admin",
+    "host": "ds159024.mlab.com",
+    "port": "59024",
+    "name": "catalog1"
+  }
+}

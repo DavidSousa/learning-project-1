@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import Header from '../App/header';
-
-import './style.css';
 import socketIoClient from 'socket.io-client';
+
+import Header from '../App/header';
+import './style.css';
+
+// TODO: When mounting the component start listening to socketIO and when dismounting stop listening
 
 class PasswordsSocket extends Component {
   constructor() {
@@ -11,17 +13,17 @@ class PasswordsSocket extends Component {
       passwordsSocket: []
     }
   }
-
-  componentDidMount() {
-    this.getPasswordsSocket();
-  }
-
-  getPasswordsSocket = () => {
-    const socket = socketIoClient();
+  
+  subsribePasswordsSocket = () => {
+    const socket = socketIoClient('/passwords');
     socket.on('sendPasswords', data => {
       this.setState({ passwordsSocket: data });
       //console.log(data);
     });
+  }
+
+  componentDidMount() {
+    this.subscribePasswordsSocket();
   }
 
   render() {

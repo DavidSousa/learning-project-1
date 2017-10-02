@@ -1,12 +1,17 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const io = require('./server/sockets');
 const api = require('./server/api');
+const database = require('./server/database');
 
 const port = process.env.PORT || 5000;
 
 const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', api);
 

@@ -13,8 +13,8 @@ class Comment extends Component {
   render() {
     return (
       <div>
-        <h3>{this.props.author}</h3>
-        <span>{this.rawMarkup()}</span>
+        <div className="chat-message-author">{this.props.author}</div>
+        <div className="chat-message-text">{this.rawMarkup()}</div>
       </div>
     );
   }
