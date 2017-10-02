@@ -13,8 +13,8 @@ class PasswordsSocket extends Component {
       passwordsSocket: []
     }
   }
-  
-  subsribePasswordsSocket = () => {
+
+  subscribePasswordsSocket = () => {
     const socket = socketIoClient('/passwords');
     socket.on('sendPasswords', data => {
       this.setState({ passwordsSocket: data });
