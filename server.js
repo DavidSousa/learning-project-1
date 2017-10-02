@@ -1,8 +1,8 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
-const io = require('./sockets');
-const api = require('./api');
+const io = require('./server/sockets');
+const api = require('./server/api');
 
 const port = process.env.PORT || 5000;
 
