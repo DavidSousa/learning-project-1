@@ -3,20 +3,27 @@ body {
   margin: 0px;
   color: #535e66;
   background-color: #eee;
+  width: 100%;
 }
 
 .header {
-  text-align: left;
-  border-bottom: 1px solid #aaa;
-  padding: 20px;
+  text-align: right;
+  height: 50px;
   background-color: #fff;
+  padding: 0px 40px 0px 40px;
 }
 
 .header > a {
-  text-underline-position: under;
+  text-decoration: none;
+  line-height: 50px;
   font-weight: bold;
   color: #535e66;
-  margin-left: 20px;
+  padding: 0px 20px;
+  display: inline-block;
+}
+
+.header > a.selected {
+  border-bottom: 3px solid #535e66;
 }
 
 .App {

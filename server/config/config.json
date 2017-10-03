@@ -5,5 +5,6 @@
     "host": "ds159024.mlab.com",
     "port": "59024",
     "name": "catalog1"
-  }
+  },
+  "sessionSecret": "segredos"
 }
