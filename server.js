@@ -3,11 +3,11 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 
-const io = require('./socket/');
-const router = require('./routes/index');
-const authRouter = require('./routes/authentication');
-const database = require('./database');
-const passport = require('./auth');
+const io = require('./server/socket/');
+const router = require('./server/routes/index');
+const authRouter = require('./server/routes/authentication');
+const database = require('./server/database');
+const passport = require('./server/auth');
 
 const port = process.env.PORT || 5000;
 
