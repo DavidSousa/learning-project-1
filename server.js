@@ -25,11 +25,11 @@ app.use(passport.session());
 app.use(logger('dev'));
 
 // Enable CORS from the client-side
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials");
-  res.header("Access-Control-Allow-Credentials", "true");
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials');
+  res.header('Access-Control-Allow-Credentials', 'true');
   next();
 });
 
@@ -42,11 +42,11 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/build/index.html'));
-  //res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+  res.sendFile(path.join(`${__dirname}/client/build/index.html`));
+  // res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
 });
 
-const server = app.listen(port, function(err) {
+const server = app.listen(port, (err) => {
   if (err) {
     console.log(err);
   } else {

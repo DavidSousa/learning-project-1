@@ -10,19 +10,20 @@ const localOptions = { usernameField: 'email' };
 
 // Setting up local login strategy
 const localLogin = new LocalStrategy(localOptions, (email, password, done) => {
-
+  //
   User.findOne({ email: email }, (err, user) => {
-    if(err) { return done(err); }
-    if(!user) { return done(null, false, { error: 'Your login details could not be verified. Please try again.' }); }
+    if (err) { return done(err); }
+    if (!user) { return done(null, false, { error: 'Your login details could not be verified. Please try again.' }); }
 
-    user.comparePassword(password, (err, isMatch) => {
-      if (err) { return done(err); }
-      if (!isMatch) { return done(null, false, { error: "Your login details could not be verified. Please try again." }); }
+    user.comparePassword(password, (innerErr, isMatch) => {
+      if (err) { return done(innerErr); }
+      if (!isMatch) { return done(null, false, { error: 'Your login details could not be verified. Please try again.' }); }
+
+      console.log('2');
 
       return done(null, user);
     });
   });
-  
 });
 
 const jwtOptions = {
@@ -33,9 +34,8 @@ const jwtOptions = {
 };
 
 // Setting up JWT login strategy
-const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done) {
-
-  User.findById(payload._id, function(err, user) {
+const jwtLogin = new JwtStrategy(jwtOptions, (payload, done) => {
+  User.findById(payload._id, (err, user) => {
     if (err) { return done(err, false); }
 
     if (user) {
@@ -44,7 +44,6 @@ const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done) {
       done(null, false);
     }
   });
-
 });
 
 passport.use(jwtLogin);

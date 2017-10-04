@@ -1,13 +1,13 @@
 const express = require('express');
-const router = express.Router();
 const generatePassword = require('password-generator');
 
+const router = express.Router();
 const commentController = require('../controllers/commentController');
 
-router.get('/api/passwords', function(req, res) {
+router.get('/api/passwords', (req, res) => {
   const count = 5;
 
-  const passwords = Array.from(Array(count).keys()).map(i => generatePassword(12, false));
+  const passwords = Array.from(Array(count).keys()).map(() => generatePassword(12, false));
 
   res.json(passwords);
 

@@ -1,7 +1,7 @@
 const express = require('express');
-const router = express.Router();
 const passport = require('passport');
 
+const router = express.Router();
 const authenticationController = require('../controllers/authenticationController');
 
 const requireAuth = passport.authenticate('jwt', { session: false });
@@ -13,10 +13,6 @@ router.post('/api/register', authenticationController.register);
 
 router.get('/home', requireAuth, (req, res) => {
   res.send('Worked!');
-});
-
-router.get('/home2', (req, res) => {
-  res.send('home.');
 });
 
 module.exports = router;

@@ -30,6 +30,18 @@ body {
   text-align: center;
 }
 
+.login-field {
+  padding-bottom: 10px;
+}
+
+.login-button {
+  border: 1px solid #e0e6ec;
+  border-radius: 6px;
+  padding: 10px;
+  background-color: white;
+  color: #535e66;
+}
+
 .password-list {
   list-style-type: none;
   padding: 0px;

@@ -3,10 +3,9 @@ import React, { Component } from 'react';
 import './style.css';
 
 class Comment extends Component {
-
   // Sanitize html?
   rawMarkup() {
-    let rawMarkup = this.props.children.toString();
+    const rawMarkup = this.props.children.toString();
     return rawMarkup;
   }
 
