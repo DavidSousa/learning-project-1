@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import Header from './header';
+import axios from 'axios';
 
+import { authenticateUser } from '../../auth.js';
+import Header from './header';
 import './style.css';
 
 class App extends Component {
@@ -12,8 +14,11 @@ class App extends Component {
     };
   }
 
-  handleSubmit = () => {
-    console.log(this.state.email, this.state.password);
+  handleLogin = () => {
+    const email = this.state.email;
+    const password = this.state.password;
+
+    authenticateUser(email, password);
   }
 
   handleEmailChange = (e) => {
@@ -30,7 +35,7 @@ class App extends Component {
         <Header />
         <h1>Welcome</h1>
         <div>
-          <form onSubmit={this.handleSubmit}>
+
             <div className="login-field">
               <div>Email</div>
               <input type="text" value={this.state.email} onChange={this.handleEmailChange}/>
@@ -39,8 +44,7 @@ class App extends Component {
               <div>Password</div>
               <input type="password" value={this.state.password} onChange={this.handlePasswordChange}/>
             </div>
-            <button type="submit" className="login-button">Login</button>
-          </form>
+            <button type="submit" className="login-button" onClick={this.handleLogin}>Login</button>
         </div>
       </div>
     );

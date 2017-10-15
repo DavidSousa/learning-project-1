@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-// onst crypto = require('crypto');
+const passport = require('passport');
 
 const User = require('../models/user');
 const config = require('../config/config');

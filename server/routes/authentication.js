@@ -11,6 +11,10 @@ router.post('/api/login', requireLogin, authenticationController.login);
 
 router.post('/api/register', authenticationController.register);
 
+router.get('/api/checkAuth', requireAuth, (req, res) => {
+  res.send('ok');
+})
+
 router.get('/home', requireAuth, (req, res) => {
   res.send('Worked!');
 });
